@@ -1,15 +1,17 @@
 <template>
-	<div id="app">
-		<router-view></router-view>
+	<div>
+		<h1>Layout</h1>
 	</div>
 </template>
 
 <script>
 
+
     export default {
-        name: 'App'
+        name: 'Layout',
     }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
 </style>
