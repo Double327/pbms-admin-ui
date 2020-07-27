@@ -96,8 +96,8 @@
             },
             getCode() {
                 captchaImage().then(res => {
-                    this.codeUrl = 'data:image/jpg;base64,' + res.data.img;
-                    this.loginForm.uuid = res.data.uuid;
+                    this.codeUrl = 'data:image/jpg;base64,' + res.img;
+                    this.loginForm.uuid = res.uuid;
                 })
             }
         }

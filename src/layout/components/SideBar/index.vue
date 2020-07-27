@@ -1,29 +1,39 @@
 <template>
 	<div :class="{'has-logo': showLogo}">
 		<logo v-if="showLogo" :collapse="isCollapse"/>
-		<el-scrollbar wrap-class="scrollbar-wrapper">
-			<el-menu
-					:default-active="activeMenu"
-					:collapse="isCollapse"
-					background-color="#304156"
-					text-color="#bfcbd9"
-
-					mode="vertical"
-			>
-			</el-menu>
-		</el-scrollbar>
+		<el-menu
+				:default-active="activeMenu"
+				:collapse="isCollapse"
+				class="el-menu-vertical-demo"
+				background-color="#304156"
+				text-color="#bfcbd9"
+				mode="vertical"
+		>
+			<sidebar-item
+					v-for="(route, index) in permission_routes"
+					:key="route.path + index"
+					:item="route"
+					:base-path="route.path"
+			/>
+		</el-menu>
 	</div>
 </template>
 
 <script>
-    import logo from './Logo'
+    import {mapGetters} from 'vuex';
+    import logo from './Logo';
+    import SidebarItem from "@/layout/components/SideBar/SidebarItem";
 
     export default {
         name: "index",
         components: {
+            SidebarItem,
             logo
         },
+        created() {
+        },
         computed: {
+            ...mapGetters(['permission_routes']),
             showLogo() {
                 return true;
             },

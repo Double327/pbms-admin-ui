@@ -17,9 +17,8 @@ const permission = {
         GenerateRoutes({commit}) {
             return new Promise(((resolve, reject) => {
                 getRoutes().then(res => {
-                    const accessedRoutes = filterAsyncRouter(res.data.data);
+                    const accessedRoutes = filterAsyncRouter(res.data);
                     accessedRoutes.push({path:'*', redirect: '/404', hidden: 'true'})
-                    console.log(accessedRoutes);
                     commit('SET_ROUTES', accessedRoutes);
                     resolve(accessedRoutes);
                 }).catch(error => {
@@ -32,12 +31,13 @@ const permission = {
 
 function filterAsyncRouter(asyncRouterMap) {
     return asyncRouterMap.filter(route => {
+        console.log(route.component);
         if (route.component) {
             // Layout组件特殊处理
             if (route.component === 'Layout') {
                 route.component = Layout
             } else {
-                route.component = loadView(route.component)
+                route.component = loadView(route.component);
             }
         }
         if (route.children != null && route.children && route.children.length) {
@@ -48,7 +48,7 @@ function filterAsyncRouter(asyncRouterMap) {
 }
 
 export const loadView = (view) => { // 路由懒加载
-    return (resolve) =>  require([`@/views/${view}`], resolve)
+    return resolve => require([`@/views/${view}`], resolve);
 }
 
 export default permission;

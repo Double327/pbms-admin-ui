@@ -37,9 +37,9 @@ const user = {
 
             return new Promise((resolve, reject) => {
                 login(username, password, code, uuid).then(res => {
-                    setToken(res.data.token);
-                    commit('SET_TOKEN', res.data.token);
-                    console.log(username + '登录成功')
+                    console.log(res);
+                    setToken(res.token);
+                    commit('SET_TOKEN', res.token);
                     resolve();
                 }).catch(error => {
                     reject(error);
@@ -62,7 +62,7 @@ const user = {
         GetInfo({commit, state}) {
             return new Promise((resolve, reject) => {
                 getUserInfo(state.token).then(res => {
-                    const user = res.data.data;
+                    const user = res.data;
                     const avatar = user.avatar === '' ? require('@/assets/img/avatar.jpg') : user.avatar;
                     if (user.roles && user.roles.length > 0) {
                         commit('SET_ROLES', user.roles);
@@ -72,14 +72,13 @@ const user = {
                     }
                     commit('SET_NAME', user.username);
                     commit('SET_AVATAR', avatar)
-                    console.log(user.username + '信息获取成功');
                     resolve(user);
                 }).catch(error => {
                     reject(error);
                 })
             });
         },
-        FedLogOut({commit}) {
+        FedLogout({commit}) {
             return new Promise(resolve => {
                 commit('SET_TOKEN', '')
                 removeToken()

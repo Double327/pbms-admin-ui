@@ -20,12 +20,7 @@
             collapse: {
                 type: Boolean,
                 required: true
-            }
-        },
-        data() {
-            return {}
-        },
-        computed: {
+            },
             title: {
                 default: '达布尔博客管理系统'
             },
@@ -33,6 +28,12 @@
                 type: String,
                 default: ''
             }
+        },
+        data() {
+            return {}
+        },
+        computed: {
+
         }
     }
 </script>

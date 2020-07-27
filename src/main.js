@@ -8,6 +8,9 @@ import store from "@/store";
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
+// 全局样式
+import '@/assets/style/index.scss';
+
 import router from './router';
 
 import './permission';

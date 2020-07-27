@@ -1,4 +1,5 @@
 /**
+ * 检测是否为外部链接
  * @param {string} path
  * @returns {Boolean}
  */
@@ -50,7 +51,6 @@ export function validAlphabets(str) {
     const reg = /^[A-Za-z]+$/
     return reg.test(str)
 }
-
 
 
 /**

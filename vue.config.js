@@ -6,8 +6,6 @@ function resolve(dir) {
 
 const port = process.env.port || process.env.npm_config_port || 80 // 端口
 
-console.log(port)
-
 module.exports = {
     publicPath: '/',
     devServer: {
@@ -47,7 +45,7 @@ module.exports = {
             preProcessor: 'scss',
             patterns: [
                 //加上自己的文件路径，不能使用别名
-                path.resolve(__dirname, 'src/styles/_variables.scss'),
+                path.resolve(__dirname, 'src/assets/style/variables.scss'),
             ]
         }
     }
