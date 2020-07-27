@@ -23,9 +23,6 @@
 
     export default {
         name: "index",
-        created() {
-            console.log(icons);
-        },
         data() {
             return {
                 name: '',

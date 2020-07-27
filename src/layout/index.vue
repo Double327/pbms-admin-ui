@@ -26,9 +26,6 @@
             AppMain,
             SideBar,
         },
-        created() {
-            console.log(this.$router);
-        },
         computed: {
             ...mapState({
                 sidebar: state => state.app.sidebar,
