@@ -114,10 +114,8 @@ export function praseStrEmpty(str) {
  * @param {*} children 孩子节点字段 默认 'children'
  * @param {*} rootId 根Id 默认 0
  */
-export function handleTree(data, id, parentId, children, rootId) {
+export function handleTree(data, id, parentId = 'parentId', rootId = 0) {
     id = id || 'id'
-    parentId = parentId || 'parentId'
-    children = children || 'children'
     rootId = rootId || 0
     //对源数据深度克隆
     const cloneData = JSON.parse(JSON.stringify(data))

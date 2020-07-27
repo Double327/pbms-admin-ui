@@ -217,6 +217,7 @@
     import IconSelect from '@/components/IconSelect';
     import '@riophae/vue-treeselect/dist/vue-treeselect.css';
     import Treeselect from '@riophae/vue-treeselect';
+    import {handleTree} from "@/utils/PBMSUtils";
 
     export default {
         name: "index",
@@ -300,7 +301,7 @@
             getList() {
                 this.loading = true;
                 getMenuList(this.queryParams).then(res => {
-                    this.menuList = res.data;
+                    this.menuList = handleTree(res.data, 'id');
                     this.loading = false;
                 })
             },
