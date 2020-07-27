@@ -22,3 +22,11 @@ export function addMenu(menu) {
         params: menu
     });
 }
+
+export function deleteMenu(menu) {
+    return request({
+        url: '/system/menu/remove',
+        method: 'delete',
+        params: menu
+    })
+}

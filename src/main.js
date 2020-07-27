@@ -15,10 +15,20 @@ import router from './router';
 
 import './permission';
 
+import {parseTime, resetForm, addDateRange, selectDictLabel, download, handleTree} from "@/utils/PBMSUtils";
+
 
 Vue.config.productionTip = false
 /*使用Element-UI*/
 Vue.use(ElementUI)
+
+
+Vue.prototype.parseTime = parseTime
+Vue.prototype.resetForm = resetForm
+Vue.prototype.addDateRange = addDateRange
+Vue.prototype.selectDictLabel = selectDictLabel
+Vue.prototype.download = download
+Vue.prototype.handleTree = handleTree
 
 Vue.prototype.msgSuccess = function (msg) {
     this.$message({showClose: true, message: msg, type: "success"})
