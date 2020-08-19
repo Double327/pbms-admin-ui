@@ -111,7 +111,6 @@ export function praseStrEmpty(str) {
  * @param {*} data 数据源
  * @param {*} id id字段 默认 'id'
  * @param {*} parentId 父节点字段 默认 'parentId'
- * @param {*} children 孩子节点字段 默认 'children'
  * @param {*} rootId 根Id 默认 0
  */
 export function handleTree(data, id, parentId = 'parentId', rootId = 0) {

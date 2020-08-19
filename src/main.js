@@ -13,8 +13,6 @@ import '@/assets/style/index.scss';
 
 import router from './router';
 
-import './permission';
-
 import {parseTime, resetForm, addDateRange, selectDictLabel, download, handleTree} from "@/utils/PBMSUtils";
 
 

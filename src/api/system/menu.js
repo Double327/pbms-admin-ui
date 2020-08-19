@@ -23,10 +23,17 @@ export function addMenu(menu) {
     });
 }
 
-export function deleteMenu(menu) {
+export function deleteMenu(id) {
     return request({
-        url: '/system/menu/remove',
-        method: 'delete',
+        url: '/system/menu/remove/' + id,
+        method: 'delete'
+    })
+}
+
+export function updateMenu(menu) {
+    return request({
+        url: '/system/menu/edit',
+        method: 'put',
         params: menu
     })
 }

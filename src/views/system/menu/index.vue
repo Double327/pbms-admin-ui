@@ -74,7 +74,11 @@
 			<el-table-column
 					prop="createTime"
 					label="创建时间"
-			></el-table-column>
+			>
+				<template slot-scope="scope">
+					<span> {{parseTime(scope.row.createTime)}}</span>
+				</template>
+			</el-table-column>
 
 			<el-table-column
 					label="操作"
@@ -303,7 +307,7 @@
                 getMenuList(this.queryParams).then(res => {
                     this.menuList = handleTree(res.data, 'id');
                     this.loading = false;
-                })
+                });
             },
             /**
              * 条件查询
@@ -340,12 +344,13 @@
              * @param menu 菜单信息
              */
             handleDelete(menu) {
+                console.log(menu.id);
                 this.$confirm('此操作将永久删除该菜单,是否删除?', '提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
                     type: 'warning'
                 }).then(() => {
-                    deleteMenu(menu).then(res => {
+                    deleteMenu(menu.id).then(res => {
                         if (res.code === 200) {
                             this.msgSuccess('删除成功!')
                         }
